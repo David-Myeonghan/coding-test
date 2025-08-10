@@ -52,13 +52,22 @@ class LinkedList:
         prev_node.next = new_node
         new_node.next = next_node
 
+    def delete_node(self, index):
+        if index == 0:
+            self.head = self.head.next
+            return
 
+        prev_node = self.get_node(index - 1)
+        index_node = self.get_node(index)
+        prev_node.next = index_node.next
 
 linked_list = LinkedList(5)
 linked_list.append(12)
 linked_list.append(8)
 # linked_list.print_all()
-linked_list.add_node(1, 6)
-linked_list.print_all()
-# print(linked_list.add_node(0, 7))
+# linked_list.add_node(1, 6)
 # linked_list.print_all()
+linked_list.delete_node(1)
+linked_list.print_all()
+
+
