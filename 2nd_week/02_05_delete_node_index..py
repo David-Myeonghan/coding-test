@@ -47,6 +47,7 @@ class LinkedList:
         #  index - 1 번째의 노드가 필요.
         prev_node = self.get_node(index - 1)
 
+        # 연결이 끊어지지 않도록 prev_node의 다음 노드를 기억할 필요
         next_node = prev_node.next
 
         prev_node.next = new_node
@@ -69,5 +70,3 @@ linked_list.append(8)
 # linked_list.print_all()
 linked_list.delete_node(1)
 linked_list.print_all()
-
-
