@@ -61,15 +61,12 @@ class LinkedList:
 # 순회는 맞았으나, for-loop이라는 리스트를 위한 고정관념에 갖힘.
 # 문자열로 저장이 아니라, * 10 + current_node.data
 
-def linked_list_sum(linked_list):
+def get_single_linked_list_sum(linked_list):
     sum = 0
     current_node = linked_list.head
 
     while current_node is not None:
-        if sum != 0:
-            sum = sum * 10 + current_node.data
-        else:
-            sum = current_node.data
+        sum = sum * 10 + current_node.data # if-else 로 처음/처음 아닐 때 구별 필요 없음. 어차피 처음엔 0 * 10 + n 이기에
         current_node = current_node.next
 
     return sum
@@ -77,17 +74,8 @@ def linked_list_sum(linked_list):
 
 # 두 개 링크드 리스트 합
 def get_linked_list_sum(linked_list_1, linked_list_2):
-    sum_1 = linked_list_sum(linked_list_1)
-
-    sum_2 = 0
-    current_node_2 = linked_list_2.head
-
-    while current_node_2 is not None:
-        if sum_2 != 0:
-            sum_2 = sum_2 * 10 + current_node_2.data
-        else:
-            sum_2 = current_node_2.data
-        current_node_2 = current_node_2.next
+    sum_1 = get_single_linked_list_sum(linked_list_1)
+    sum_2 = get_single_linked_list_sum(linked_list_2)
 
     return sum_1 + sum_2
 
