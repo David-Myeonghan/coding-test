@@ -23,7 +23,6 @@ class LinkedList:
         while cur.next is not None:
             cur = cur.next
             length += 1
-        print('length: ',length)
         end_length = length - k # 끝(length)에서 k번째 --> length - k
         cur = self.head
 
@@ -32,9 +31,26 @@ class LinkedList:
 
         return cur
 
+    def get_kth_node_from_last_with_two_node(self, k):
+        slow = self.head
+        fast = self.head
+        # 두 개의 노드를 사용해서,
+
+        for i in range(k):
+            fast = fast.next # fast 노드를 k 만큼 길이를 떨어지게(앞서게) 한 다음,
+
+        # fast 노드가 끝에 도달할 때까지, fast/slow 노드를 한칸씩 앞으로 이동.
+        while fast is not None: # 왜 fast.data가 아니지? -> 종료조건은 "끝에 도달했는가?"이고, 끝의 정의는 fast is None. # fast.data는 그 노드에 저장된 '값'일 뿐, 리스트의 끝 여부와는 무관
+            slow = slow.next
+            fast = fast.next
+        return slow
+
+
+
 
 linked_list = LinkedList(6)
 linked_list.append(7)
 linked_list.append(8)
 
 print(linked_list.get_kth_node_from_last(2).data)  # 7이 나와야 합니다!
+print(linked_list.get_kth_node_from_last_with_two_node(2).data)  # 7이 나와야 합니다!
