@@ -1,12 +1,13 @@
 array_a = [1, 2, 3, 5]
 array_b = [4, 6, 7, 8]
 
-
+# Divide and Conquer
 def merge(array1, array2):
     result = []
     array1_index = 0
     array2_index = 0
 
+    # 두 개 배열중 하나라도 끝까지 다 본 순간 while이 멈춤
     while array1_index < len(array1) and array2_index < len(array2):
         if array1[array1_index] < array2[array2_index]:
             result.append(array1[array1_index])
