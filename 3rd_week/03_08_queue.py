@@ -24,7 +24,7 @@ class Queue:
             return 'Queue is empty'
         delete_node = self.head
         self.head = self.head.next
-        return delete_node
+        return delete_node.data
 
     def peek(self):
         if self.is_empty():
