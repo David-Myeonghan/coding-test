@@ -36,7 +36,7 @@ def catch_me(cony_loc, brown_loc):
             # B -1
             new_location = current_location - 1
             if 0 <= new_location <= 200_000 and new_time not in visited[new_location]: # 범위 안에 있고, 같은 (위치, 시간)이 있으면 또 기록하지 않도록.
-                # visited에 있는 dict에서는 중복 저장이 안되지만(자동 dedup), queue에 다시 같은 (위치, 시간)이 들어가면 또 다시 계산되고 무한히 들어가면서 timeout.
+                # visited에 있는 dict에서는 중복 저장이 안되지만(자동 dedup), queue에 (현재 위치, 현재 시간으로 구한) 같은 (위치, 시간)이 들어가면 또 다시 계산되고 무한히 들어가면서 timeout.
                 # 그걸 막기 위한 필수 조건
                 # 알고리즘적 의미로도, BFS에서 같은 값은 한번만 방문하는게 맞음 (알고리즘 문제가 완전 이진 트리라는 전제하)
                 visited[new_location][new_time] = True
